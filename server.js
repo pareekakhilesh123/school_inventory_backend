@@ -1,13 +1,17 @@
 const express = require('express');
-const cors = require('cors');   // 1. CORS module import karo
+const cors = require('cors');    
 const app = express();
 require('dotenv').config();
 const db = require('./db/db');
 const userRoutes = require('./routes/userRoutes');
+const categoryRoutes = require('./routes/categoryRoutes');
+const itemRoutes = require('./routes/itemRoutes');
 
-app.use(cors());  // 2. CORS middleware use karo (sab origins allow kar dega)
+app.use(cors());  
 app.use(express.json());
 app.use('/api/users', userRoutes);
+app.use('/api/users', categoryRoutes);
+app.use('/api/users', itemRoutes);
 
 app.get('/', (req, res) => {
   res.send('API is running...');
