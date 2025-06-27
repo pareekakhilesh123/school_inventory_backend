@@ -2,10 +2,9 @@ const express = require('express');
 const router = express.Router();
 const categoryController = require('../controllers/categoryController');
 
-router.get('/category', categoryController.getAllcategory);
-router.post('/category', categoryController.insertCategory);
-router.put('/category', categoryController.updateCategory);
-router.delete('/category/:id', categoryController.deleteCategory);
-
+router.get('/', categoryController.getAllcategory);
+router.post('/', categoryController.insertCategory);
+router.put('/', categoryController.updateCategory);
+router.delete('/:id', categoryController.deleteCategory);
 
 module.exports = router;
